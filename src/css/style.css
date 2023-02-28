@@ -1,0 +1,90 @@
+body {
+    box-sizing: border-box;
+    max-width: 1170px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 auto;
+}
+.app-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.post-wrap {
+    border: 1px solid;
+    max-width: 700px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.post-author-header {
+    max-width: 600px;
+}
+.post-author-info-row {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    max-width: 240px;
+    align-items: center;
+}
+.post-autor-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.post-author-img {
+    margin: 20px;
+}
+.post-author-img img {
+    border:1px solid;
+    border-radius: 50%;
+    max-width: 55px;
+    max-height: 55px;
+}
+.post-content {
+    margin-bottom: 20px;
+}
+.post-image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.post-comments-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.post-comments-header {
+    margin-bottom: 20px;
+}
+.comment-user-item  {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;   
+    width: 100%;
+    max-width: 647px;
+}
+.comments-user-info {
+    width: 80%;
+}
+.comment-user-name, .comment-user-content {
+    margin-left: 20px;
+}
+.comments-user-img img {
+    border: 1px solid;
+    border-radius: 50%;
+    max-width: 50px;
+    max-height: 50px;
+}
+.post-comments-header {
+    align-items: center;
+    width: 100%;
+    max-width: 170px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
