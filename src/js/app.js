@@ -24,8 +24,9 @@ window.addEventListener('DOMContentLoaded', () => {
     )
 
     postStream$.subscribe((obs) => {
-        obs.subscribe((value) => {
-            console.log(value)
+        obs.subscribe((data) => {
+            postLoader.createPost(data.post)
+            postLoader.createComment(...data.comments)
         })
     })
 

@@ -1,9 +1,9 @@
 export default class PostLoader {
     constructor() {
-        
+        this.appContainer = document.querySelector('.app-container');
     }
 
-    createPost() {
+    createPost(postData) {
         const postWrap = document.createElement('div');
         const postAutorHeader = document.createElement('div');
         const postAutorInfoRow = document.createElement('div');
@@ -18,6 +18,14 @@ export default class PostLoader {
         const postCommentsTitle = document.createElement('div');
         const postCommentsWrap = document.createElement('div');
 
+        postImg.setAttribute('src', postData.avatar);
+        postAuthorName.textContent = postData.author;
+        postImgMain.setAttribute('src', postData.image);
+        postContent.textContent = postData.title;
+        postAuthorDate.textContent = new Date(postData.created).toLocaleString('ru');
+        postCommentsTitle.textContent = 'Lastest Comments'
+        postWrap.setAttribute('post-id', postData.id);
+        postCommentsWrap.setAttribute('post-id', postData.id);
 
         postWrap.classList.add('post-wrap');
         postAutorHeader.classList.add('post-author-header');
@@ -44,10 +52,12 @@ export default class PostLoader {
         postWrap.appendChild(postContent);
         postWrap.appendChild(postCommentsTitle);
         postWrap.appendChild(postCommentsWrap);
+        this.appContainer.appendChild(postWrap)
     
     }
 
-    createComment() {
+    createComment(dataComments) {
+        const targetPost = document.querySelector(`.post-comments-container[post-id="${dataComments.post_id}"]`);
         const commentUserWrap = document.createElement('div');
         const commentUserImgWrap = document.createElement('div');
         const commentUserImg = document.createElement('img');
@@ -55,6 +65,11 @@ export default class PostLoader {
         const commentUserName = document.createElement('div');
         const commentUserContent = document.createElement('div');
         const commentUserDate = document.createElement('div');
+
+        commentUserImg.setAttribute('src', dataComments.avatar);
+        commentUserName.textContent = dataComments.author;
+        commentUserContent.textContent = dataComments.content;
+        commentUserDate.textContent = new Date(dataComments.created).toLocaleString('ru');
 
         commentUserWrap.classList.add('comment-user-item');
         commentUserImgWrap.classList.add('comments-user-img');
@@ -64,10 +79,12 @@ export default class PostLoader {
         commentUserDate.classList.add('comment-user-date');
 
         commentUserImgWrap.appendChild(commentUserImg);
+        commentUserWrap.appendChild(commentUserImgWrap);
         commentUserInfoWrap.appendChild(commentUserName);
         commentUserInfoWrap.appendChild(commentUserContent);
         commentUserWrap.appendChild(commentUserInfoWrap);
         commentUserWrap.appendChild(commentUserDate);
+        targetPost.appendChild(commentUserWrap)
 
     }
 }
